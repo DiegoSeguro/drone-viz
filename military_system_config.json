@@ -1,0 +1,289 @@
+{
+  "system_config": {
+    "detection_threshold": 0.75,
+    "nms_threshold": 0.4,
+    "min_detection_size": 20,
+    "max_altitude": 300,
+    "temporal_consistency_frames": 5,
+    "tracking_max_age": 30,
+    "fusion_confidence_boost": 0.15,
+    "thermal_weight_night": 0.7,
+    "camouflage_sensitivity": 0.8,
+    "processing_fps": 15,
+    "max_detections_per_frame": 50
+  },
+  
+  "hardware_requirements": {
+    "minimum": {
+      "compute_unit": "NVIDIA Jetson AGX Orin 32GB",
+      "gpu_memory": "32GB",
+      "system_memory": "32GB",
+      "storage": "1TB NVMe SSD",
+              "cameras": {
+        "rgb": "4K stabilized gimbal camera",
+        "thermal": "FLIR Boson 640x512 uncooled thermal camera",
+        "lowlight": "Sony IMX385 starlight camera"
+      },
+      "communication": [
+        "WiFi 6E dual-band",
+        "4G/5G cellular modem", 
+        "Long-range radio transceiver"
+      ],
+      "power": "High-density LiPo 6S 22000mAh",
+      "flight_time": "45+ minutes with full payload"
+    },
+    
+    "recommended": {
+      "compute_unit": "NVIDIA Jetson AGX Orin 64GB + Intel NUC 12 Pro",
+      "gpu_memory": "64GB + dedicated GPU",
+      "system_memory": "64GB",
+      "storage": "2TB NVMe SSD RAID 1",
+      "cameras": {
+        "rgb": "Dual 8K cameras with 3-axis gimbal",
+        "thermal": "FLIR Boson 1280x1024 cooled thermal",
+        "lowlight": "Dual Sony IMX585 with IR illuminators",
+        "multispectral": "MicaSense Altum-PT multispectral"
+      },
+      "communication": [
+        "Military-grade encrypted radio",
+        "Satellite communication backup",
+        "Mesh networking capability",
+        "Directional high-gain antennas"
+      ],
+      "power": "Dual redundant battery system 44000mAh total",
+      "flight_time": "90+ minutes with full sensor suite"
+    }
+  },
+  
+  "mission_parameters": {
+    "altitude_ranges": {
+      "low": {
+        "min_meters": 50,
+        "max_meters": 150,
+        "detection_range": "200m radius",
+        "recommended_speed": "5-10 m/s"
+      },
+      "medium": {
+        "min_meters": 150,
+        "max_meters": 300,
+        "detection_range": "500m radius", 
+        "recommended_speed": "10-15 m/s"
+      },
+      "high": {
+        "min_meters": 300,
+        "max_meters": 500,
+        "detection_range": "1000m radius",
+        "recommended_speed": "15-20 m/s"
+      }
+    },
+    
+    "weather_operations": {
+      "optimal": {
+        "wind_max_ms": 8,
+        "visibility_min_km": 5,
+        "temperature_range_c": [-10, 40],
+        "precipitation": "none"
+      },
+      "acceptable": {
+        "wind_max_ms": 12,
+        "visibility_min_km": 2,
+        "temperature_range_c": [-20, 50],
+        "precipitation": "light rain/snow"
+      },
+      "emergency_only": {
+        "wind_max_ms": 15,
+        "visibility_min_km": 1,
+        "temperature_range_c": [-30, 60],
+        "precipitation": "moderate conditions"
+      }
+    }
+  },
+  
+  "performance_targets": {
+    "detection_accuracy": {
+      "clear_conditions": 0.92,
+      "adverse_conditions": 0.85,
+      "night_operations": 0.88,
+      "camouflaged_targets": 0.75
+    },
+    
+    "false_positive_rates": {
+      "maximum_acceptable": 0.08,
+      "target_rate": 0.05,
+      "critical_missions": 0.03
+    },
+    
+    "system_latency": {
+      "detection_to_alert_ms": 200,
+      "end_to_end_processing_ms": 500,
+      "communication_delay_ms": 100
+    },
+    
+    "operational_requirements": {
+      "continuous_operation_hours": 8,
+      "mission_success_rate": 0.95,
+      "system_availability": 0.99
+    }
+  },
+  
+  "security_config": {
+    "encryption": {
+      "communication": "AES-256-GCM",
+      "data_storage": "AES-256-XTS",
+      "key_exchange": "ECDHE-RSA"
+    },
+    
+    "authentication": {
+      "operator_access": "Multi-factor authentication",
+      "system_to_system": "Mutual TLS with certificates",
+      "emergency_override": "Hardware key required"
+    },
+    
+    "data_protection": {
+      "classification_level": "SECRET//NOFORN",
+      "retention_policy_days": 365,
+      "secure_deletion": "DOD 5220.22-M standard",
+      "audit_logging": "full_activity_log"
+    }
+  },
+  
+  "ai_model_config": {
+    "rgb_model": {
+      "architecture": "YOLOv8x-custom",
+      "input_resolution": [1280, 720],
+      "batch_size": 4,
+      "precision": "FP16",
+      "inference_time_target_ms": 50
+    },
+    
+    "thermal_model": {
+      "architecture": "Custom thermal-optimized CNN",
+      "input_resolution": [640, 512],
+      "temperature_range_c": [-40, 200],
+      "thermal_sensitivity": 0.05,
+      "fusion_weight": 0.4
+    },
+    
+    "camouflage_detector": {
+      "method": "Multi-scale texture analysis",
+      "gabor_filters": 18,
+      "texture_analysis_levels": 4,
+      "confidence_threshold": 0.8
+    },
+    
+    "tracking_system": {
+      "algorithm": "DeepSORT with Re-ID",
+      "max_tracks": 100,
+      "track_timeout_seconds": 10,
+      "re_identification_threshold": 0.7
+    }
+  },
+  
+  "data_collection_requirements": {
+    "training_dataset": {
+      "minimum_images": 50000,
+      "target_images": 100000,
+      "terrain_types": [
+        "desert", "forest", "urban", "mountain", 
+        "coastal", "agricultural", "industrial"
+      ],
+      "lighting_conditions": [
+        "dawn", "day", "dusk", "night", 
+        "overcast", "direct_sunlight"
+      ],
+      "weather_conditions": [
+        "clear", "rain", "fog", "snow", "dust"
+      ],
+      "camouflage_types": [
+        "woodland", "desert", "urban", "digital", 
+        "ghillie_suits", "natural_concealment"
+      ]
+    },
+    
+    "annotation_requirements": {
+      "precision_standard": "Military targeting accuracy",
+      "bbox_accuracy_pixels": 2,
+      "classification_confidence": 0.95,
+      "inter_annotator_agreement": 0.9
+    }
+  },
+  
+  "testing_protocols": {
+    "unit_tests": {
+      "detection_accuracy_per_model": "90% minimum",
+      "processing_speed_compliance": "Required FPS maintained",
+      "memory_leak_detection": "Zero leaks over 24h",
+      "thermal_performance": "No throttling under load"
+    },
+    
+    "integration_tests": {
+      "multi_modal_fusion": "Improved accuracy vs single mode",
+      "communication_failover": "Seamless backup activation",
+      "database_performance": "10k records/minute sustained",
+      "real_time_constraints": "Latency targets met"
+    },
+    
+    "field_tests": {
+      "operational_scenarios": [
+        "border_patrol", "reconnaissance", "search_rescue",
+        "perimeter_security", "convoy_overwatch"
+      ],
+      "duration_per_scenario_hours": 4,
+      "environmental_conditions": "Full range per weather matrix",
+      "operator_training_hours": 40
+    }
+  },
+  
+  "maintenance_schedule": {
+    "daily": [
+      "System health check",
+      "Battery status verification", 
+      "Camera calibration check",
+      "Communication system test"
+    ],
+    
+    "weekly": [
+      "Full system diagnostics",
+      "Model performance validation",
+      "Data backup verification",
+      "Hardware inspection"
+    ],
+    
+    "monthly": [
+      "Model retraining evaluation",
+      "Security audit",
+      "Performance benchmark testing",
+      "Operator proficiency assessment"
+    ],
+    
+    "quarterly": [
+      "Complete system overhaul",
+      "Hardware replacement schedule",
+      "Software version updates",
+      "Threat assessment review"
+    ]
+  },
+  
+  "compliance_requirements": {
+    "military_standards": [
+      "MIL-STD-810G (Environmental)",
+      "MIL-STD-461G (EMI/EMC)",  
+      "MIL-STD-1275E (Power)",
+      "MIL-STD-464C (EME)"
+    ],
+    
+    "cybersecurity": [
+      "NIST Cybersecurity Framework",
+      "DOD Cybersecurity Maturity Model",
+      "FIPS 140-2 Level 3 encryption",
+      "Common Criteria EAL 4+"
+    ],
+    
+    "aviation": [
+      "FAA Part 107 (where applicable)",
+      "ICAO Annex 2 (Rules of the Air)",
+      "Military airworthiness standards",
+      "Electronic warfare compatibility"
+    ]
+  }
+}
