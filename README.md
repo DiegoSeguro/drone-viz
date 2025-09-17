@@ -512,6 +512,7 @@ Este projeto é classificado como **USO MILITAR RESTRITO** e está sujeito a:
 - Controles de exportação EAR (Export Administration Regulations)  
 - Classificação de segurança nacional
 
+---
 
 ### Status do Sistema
 
