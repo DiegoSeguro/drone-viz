@@ -511,25 +511,7 @@ Este projeto é classificado como **USO MILITAR RESTRITO** e está sujeito a:
 - Regulamentações ITAR (International Traffic in Arms Regulations)
 - Controles de exportação EAR (Export Administration Regulations)  
 - Classificação de segurança nacional
-- Acordos de não divulgação (NDA) obrigatórios
 
-**AVISO**: A distribuição, modificação ou uso deste software sem autorização adequada pode resultar em penalidades criminais e civis sob as leis de controle de exportação dos EUA e internacionais.
-
-Para informações sobre licenciamento, contate:
-- **Email**: licensing@military-systems.gov
-- **Telefone**: +1 (555) 123-CLASSIFIED  
-- **Classificação**: SECRET//NOFORN
-
----
-
-## Suporte
-
-### Contatos de Suporte
-
-- **Suporte Técnico**: tech-support@military-systems.gov
-- **Emergências 24/7**: +1 (555) 911-DRONE
-- **Documentação**: https://docs.military-systems.gov
-- **Training**: https://training.military-systems.gov
 
 ### Status do Sistema
 
