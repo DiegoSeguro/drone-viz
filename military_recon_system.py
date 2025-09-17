@@ -1,6 +1,5 @@
 """
-Sistema Militar de Reconhecimento com Drones - Versão Aprimorada
-Implementação das correções críticas identificadas na avaliação
+Sistema Militar de Reconhecimento com Drones - V3
 """
 
 import cv2
